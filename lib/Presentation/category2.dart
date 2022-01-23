@@ -1,11 +1,8 @@
-import 'package:calculator/Presentation/age.dart';
 import 'package:calculator/Presentation/navbar.dart';
-import 'package:calculator/Presentation/speed.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 
-class CategoryPage extends StatelessWidget {
-  const CategoryPage({Key? key}) : super(key: key);
+class Category2Page extends StatelessWidget {
+  const Category2Page({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,25 +18,13 @@ class CategoryPage extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
-                  custom_card("assets/cake.png", "Age"),
-                  custom_card("assets/speed.png", "Speed"),
-                  custom_card("assets/discount.png", "Discount")
+                  custom_card("assets/tax.png", "GST"),
+                  SizedBox(width: 100,),
+                  SizedBox(width: 100,)
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 30),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  custom_card("assets/length.png", "Age"),
-                  custom_card("assets/mass.png", "Mass"),
-                  SizedBox(
-                    width: 100,
-                  )
-                ],
-              ),
-            ),
+           
           ],
         ),
       ),
@@ -49,9 +34,6 @@ class CategoryPage extends StatelessWidget {
 
 custom_card(img, txt) {
   return GestureDetector(
-    onTap: (){
-      Get.to(()=>SpeedPage());
-    },
     child: Card(
       elevation: 0,
       child: Column(
