@@ -11,8 +11,8 @@ Widget Caterory2_widget()
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   custom_card("assets/tax.png", "GST"),
-                  SizedBox(width: 100,),
-                  SizedBox(width: 100,)
+                  const SizedBox(width: 100,),
+                  const SizedBox(width: 100,)
                 ],
               ),
             ),

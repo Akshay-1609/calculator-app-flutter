@@ -1,6 +1,11 @@
 // ignore_for_file: prefer_const_constructors
-
+import 'package:calculator/Presentation/widgets/category_widget.dart';
+import 'package:intl/intl.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+
+final DateTime now = DateTime.now();
+var formatter = new DateFormat('dd-M-yyyy');
 
 class AgePage extends StatelessWidget {
   const AgePage({Key? key}) : super(key: key);
@@ -12,10 +17,15 @@ class AgePage extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        leading: Icon(
-          Icons.arrow_back_ios_new,
-          color: Color(0xff325288),
-          size: 30,
+        leading: GestureDetector(
+          onTap: () {
+            Get.back();
+          },
+          child: Icon(
+            Icons.arrow_back_ios_new,
+            color: Color(0xff325288),
+            size: 30,
+          ),
         ),
         title: Text(
           "Age",
@@ -40,15 +50,11 @@ class AgePage extends StatelessWidget {
                   width: 120,
                   child: InkWell(
                     onTap: () {
-                      showDatePicker(
-                        context: context,
-                        initialDate: DateTime.now(), // Refer step 1
-                        firstDate: DateTime(1900),
-                        lastDate: DateTime(2050),
-                      );
+                      _selectDate(context);
                     },
                     child: IgnorePointer(
                       child: TextFormField(
+                        controller: categorycontroller.selectedDateController,
                         decoration: InputDecoration(
                           hintText: "Enter Your Date",
                           enabledBorder: InputBorder.none,
@@ -74,13 +80,7 @@ class AgePage extends StatelessWidget {
                 ),
                 Container(
                   width: 120,
-                  child: IgnorePointer(
-                    child: TextFormField(
-                      decoration: InputDecoration(
-                        enabledBorder: InputBorder.none,
-                      ),
-                    ),
-                  ),
+                  child: Text(now.toString().substring(0, 10).toString()),
                 )
               ],
             ),
@@ -89,7 +89,7 @@ class AgePage extends StatelessWidget {
             height: 30,
           ),
           Container(
-            height: 240,
+            height: 250,
             width: 350,
             child: Card(
               shape: RoundedRectangleBorder(
@@ -112,16 +112,17 @@ class AgePage extends StatelessWidget {
                         Row(
                           // ignore: prefer_const_literals_to_create_immutables
                           children: [
-                            Text(
-                              "11",
-                              style:
-                                  TextStyle(fontSize: 60, color: Color(0xff31A6A2)),
-                            ),
+                            Obx(() => Text(
+                                  categorycontroller.age_year.value,
+                                  style: TextStyle(
+                                      fontSize: 60, color: Color(0xff31A6A2)),
+                                )),
                             Padding(
                               padding: const EdgeInsets.only(top: 15, left: 10),
                               child: Text(
                                 "Years",
-                                style: TextStyle(color: Colors.white, fontSize: 30),
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 30),
                               ),
                             )
                           ],
@@ -129,20 +130,32 @@ class AgePage extends StatelessWidget {
                         SizedBox(
                           height: 10,
                         ),
-                        Text(
-                          "5 months | 6 days",
-                          style: TextStyle(color: Colors.white, fontSize: 19,fontWeight: FontWeight.w600),
-                        ),
+                        Obx(() => Text(
+                              "${categorycontroller.age_month.value} months | ${categorycontroller.age_day.value} days",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 19,
+                                  fontWeight: FontWeight.w600),
+                            )),
                       ],
                     ),
                   ),
                   SizedBox(
                     height: 15,
                   ),
-                   Divider(  
-                      color: Color(0xff31A6A2),
-                      thickness: 1.5,
-                    )
+                  Divider(
+                    color: Color(0xff31A6A2),
+                    thickness: 1.5,
+                  ),
+                  SizedBox(
+                    height: 6,
+                  ),
+                  Obx(() => Center(
+                    child: Text(
+                          'Total Days: ${categorycontroller.age_total_day.value}',
+                          style: TextStyle(color: Colors.white,fontSize: 16),
+                        ),
+                  )),
                 ],
               ),
             ),
@@ -151,4 +164,20 @@ class AgePage extends StatelessWidget {
       ),
     );
   }
+}
+
+_selectDate(BuildContext ctx) async {
+  DateTime nowyear = DateTime.now();
+  String latestyear = DateFormat('yyyy').format(nowyear);
+  final DateTime? picked = await showDatePicker(
+    context: ctx,
+    initialDate: nowyear,
+    firstDate: DateTime(1980),
+    lastDate: DateTime(int.parse(latestyear) + 1),
+  );
+  if (picked != null && picked != now)
+    categorycontroller.selectedDateController.text =
+        DateFormat('dd-M-yyyy').format(picked);
+  categorycontroller
+      .agecalculation(categorycontroller.selectedDateController.text);
 }

@@ -2,6 +2,7 @@
 
 import 'package:calculator/Presentation/speed.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 var mass_cat = [
   "kg",
@@ -21,10 +22,20 @@ class Massconverter extends StatelessWidget {
       appBar: AppBar(
         elevation: 0,
         backgroundColor: Colors.white,
-        leading: Icon(
-          Icons.arrow_back_ios_new,
-          color: Color(0xff325288),
-          size: 30,
+        leading: GestureDetector(
+          onTap: (){
+            Get.back();
+          },
+          child: GestureDetector(
+            onTap: (){
+              Get.back();
+            },
+            child: Icon(
+              Icons.arrow_back_ios_new,
+              color: Color(0xff325288),
+              size: 30,
+            ),
+          ),
         ),
         title: Text(
           "Mass Converter",

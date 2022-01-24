@@ -1,5 +1,8 @@
+import 'package:calculator/Controller/categoryController.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+final categorycontroller = Get.put(CategoryController());
 Widget Category_widget() {
   return Column(
     children: [
@@ -8,9 +11,9 @@ Widget Category_widget() {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            custom_card("assets/cake.png", "Age"),
-            custom_card("assets/speed.png", "Speed"),
-            custom_card("assets/discount.png", "Discount")
+            custom_card("assets/cake.png", "Age","age"),
+            custom_card("assets/speed.png", "Speed",'speed'),
+            custom_card("assets/discount.png", "Discount",'discount')
           ],
         ),
       ),
@@ -19,8 +22,8 @@ Widget Category_widget() {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            custom_card("assets/length.png", "Age"),
-            custom_card("assets/mass.png", "Mass"),
+            custom_card("assets/length.png", "Scale",'scale'),
+            custom_card("assets/mass.png", "Mass",'mass'),
             SizedBox(
               width: 100,
             )
@@ -31,10 +34,10 @@ Widget Category_widget() {
   );
 }
 
-custom_card(img, txt) {
+custom_card(img, txt,val) {
   return GestureDetector(
     onTap: () {
-      // Get.to(() => Gstpage());
+      categorycontroller.categorypage(val);
     },
     child: Card(
       elevation: 0,
