@@ -1,4 +1,8 @@
 import 'package:calculator/Presentation/age.dart';
+import 'package:calculator/Presentation/discount.dart';
+import 'package:calculator/Presentation/gst.dart';
+import 'package:calculator/Presentation/lengthconverter.dart';
+import 'package:calculator/Presentation/mass.dart';
 import 'package:calculator/Presentation/navbar.dart';
 import 'package:calculator/Presentation/speed.dart';
 import 'package:flutter/material.dart';
@@ -50,7 +54,7 @@ class CategoryPage extends StatelessWidget {
 custom_card(img, txt) {
   return GestureDetector(
     onTap: (){
-      Get.to(()=>SpeedPage());
+      Get.to(()=>Gstpage());
     },
     child: Card(
       elevation: 0,
