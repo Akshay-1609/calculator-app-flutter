@@ -1,18 +1,10 @@
-import 'package:calculator/Presentation/navbar.dart';
 import 'package:flutter/material.dart';
 
-class Category2Page extends StatelessWidget {
-  const Category2Page({Key? key}) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: Padding(
-        padding: const EdgeInsets.only(top: 70, left: 8, right: 8),
-        child: Column(
+Widget Caterory2_widget()
+{
+  return  Column(
           children: [
-  
+           
             Padding(
               padding: const EdgeInsets.only(top: 50),
               child: Row(
@@ -26,11 +18,9 @@ class Category2Page extends StatelessWidget {
             ),
            
           ],
-        ),
-      ),
-    );
-  }
+        );
 }
+
 
 custom_card(img, txt) {
   return GestureDetector(

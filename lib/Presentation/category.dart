@@ -19,7 +19,7 @@ class CategoryPage extends StatelessWidget {
         padding: const EdgeInsets.only(top: 70, left: 8, right: 8),
         child: Column(
           children: [
-            custom_navbar(),
+         
             Padding(
               padding: const EdgeInsets.only(top: 50),
               child: Row(
