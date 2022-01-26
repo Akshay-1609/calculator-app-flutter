@@ -20,7 +20,7 @@ class CalculatorController extends GetxController {
       }
     } else if (value == "." && equation.value == "") {
       equation.value = "0.";
-    } else if (value != "=" ) {
+    } else if (value != "=") {
       equation.value = equation.value + value;
     } else if (value == "=" &&
         equation.value.isNotEmpty &&
@@ -31,9 +31,5 @@ class CalculatorController extends GetxController {
       double eval = exp.evaluate(EvaluationType.REAL, cm);
       answer.value = eval.toString();
     }
-    else{
-      answer.value="Please enter valid input";
-    }
- 
   }
 }

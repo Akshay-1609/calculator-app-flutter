@@ -132,7 +132,9 @@ Widget Homepage_widget() {
             ],
           ),
         ),
-        SizedBox(height: 15,)
+        SizedBox(
+          height: 15,
+        )
       ],
     ),
   );
@@ -163,7 +165,7 @@ Widget custom_txt_button(txt, double size, width, val) {
 
 Widget custom_icon_button(icn, double size, val) {
   return GestureDetector(
-    onTap: (){
+    onTap: () {
       equationController.equationcreation(val);
     },
     child: Card(
@@ -175,11 +177,10 @@ Widget custom_icon_button(icn, double size, val) {
         width: 55,
         child: Center(
           child: Icon(
-                icn,
-                color: Color(0xff325288),
-                size: size,
-              ),
-         
+            icn,
+            color: Color(0xff325288),
+            size: size,
+          ),
         ),
       ),
     ),

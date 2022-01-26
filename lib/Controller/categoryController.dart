@@ -47,9 +47,18 @@ class CategoryController extends GetxController {
   DateTime today = DateTime.now();
 
   age_year.value = (today.year - birthDate.year).toString();
-  age_month.value = (today.month + (12-birthDate.month)).abs().toString();
-  age_day.value = (birthDate.day + (today.day-birthDate.day)).toString();
+  age_month.value = (today.month - birthDate.month).toString();
+  age_day.value = (today.day-birthDate.day).toString();
+   if (int.parse(age_month.value) < 0 || (int.parse(age_month.value) == 0 && int.parse(age_day.value) < 0)) { 
+       
+         age_year.value= (int.parse(age_year.value)-1).toString();
+        age_month.value= (int.parse(age_month.value) +(int.parse(age_day.value) < 0 ? 11 : 12)).toString(); 
+      } 
+      if (int.parse(age_day.value) < 0) { 
+        final monthAgo = DateTime(today.year, today.month - 1, birthDate.day); 
+        age_day.value = (today.difference(monthAgo).inDays + 1).toString(); 
+      } 
   age_total_day.value=(today.difference(birthDate).inHours/24).round().toString();
   
-  }
+  } 
 }

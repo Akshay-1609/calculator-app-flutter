@@ -54,6 +54,7 @@ class AgePage extends StatelessWidget {
                     },
                     child: IgnorePointer(
                       child: TextFormField(
+                        style: TextStyle(fontSize: 19,fontWeight: FontWeight.w600),
                         controller: categorycontroller.selectedDateController,
                         decoration: InputDecoration(
                           hintText: "Enter Your Date",
@@ -80,7 +81,7 @@ class AgePage extends StatelessWidget {
                 ),
                 Container(
                   width: 120,
-                  child: Text(now.toString().substring(0, 10).toString()),
+                  child: Text(now.toString().substring(0, 10),style:  TextStyle(fontSize: 19,fontWeight: FontWeight.w600),),
                 )
               ],
             ),
