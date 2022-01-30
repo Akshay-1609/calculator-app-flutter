@@ -4,7 +4,6 @@ Widget Caterory2_widget()
 {
   return  Column(
           children: [
-           
             Padding(
               padding: const EdgeInsets.only(top: 50),
               child: Row(
