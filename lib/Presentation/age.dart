@@ -24,7 +24,7 @@ class AgePage extends StatelessWidget {
           child: Icon(
             Icons.arrow_back_ios_new,
             color: Color(0xff325288),
-            size: 30,
+            size: 23,
           ),
         ),
         title: Text(
@@ -57,7 +57,7 @@ class AgePage extends StatelessWidget {
                         style: TextStyle(fontSize: 19,fontWeight: FontWeight.w600),
                         controller: categorycontroller.selectedDateController,
                         decoration: InputDecoration(
-                          hintText: "Enter Your Date",
+                          hintText: "Enter Date",
                           enabledBorder: InputBorder.none,
                         ),
                       ),
@@ -168,6 +168,7 @@ class AgePage extends StatelessWidget {
 }
 
 _selectDate(BuildContext ctx) async {
+  try{
   DateTime nowyear = DateTime.now();
   String latestyear = DateFormat('yyyy').format(nowyear);
   final DateTime? picked = await showDatePicker(
@@ -181,4 +182,10 @@ _selectDate(BuildContext ctx) async {
         DateFormat('dd-M-yyyy').format(picked);
   categorycontroller
       .agecalculation(categorycontroller.selectedDateController.text);
+}
+catch(e)
+{
+
+}
+
 }

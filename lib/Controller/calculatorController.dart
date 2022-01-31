@@ -25,11 +25,17 @@ class CalculatorController extends GetxController {
     } else if (value == "=" &&
         equation.value.isNotEmpty &&
         experssion.contains(equation.value[0]) == false) {
+          try{
       Parser p = Parser();
       Expression exp = p.parse(equation.value);
       ContextModel cm = ContextModel();
       double eval = exp.evaluate(EvaluationType.REAL, cm);
       answer.value = eval.toString();
+          }
+          catch(e)
+          {
+            
+          }
     }
   }
 }

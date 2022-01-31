@@ -21,24 +21,27 @@ class Homepage extends StatelessWidget {
         appBar: AppBar(
           elevation: 0,
           backgroundColor: Colors.white,
-          title: TabBar(
-            unselectedLabelColor: Colors.grey,
-            labelColor: Color(0xff325288),
-indicatorColor: Colors.transparent,
-            // ignore: prefer_const_literals_to_create_immutables
-            tabs: [
-              Tab(
-                  icon: Icon(
-                Icons.home,
-                size: 35,
-              )),
-              Tab(
-                  icon: Icon(
-                Icons.grid_view_rounded,
-                size: 35,
-              )),
-              Tab(icon: Icon(Icons.monetization_on_sharp, size: 35)),
-            ],
+          title: Padding(
+            padding: const EdgeInsets.only(top:20),
+            child: TabBar(
+              unselectedLabelColor: Colors.grey,
+              labelColor: Color(0xff325288),
+    indicatorColor: Colors.transparent,
+              // ignore: prefer_const_literals_to_create_immutables
+              tabs: [
+                Tab(
+                    icon: Icon(
+                  Icons.home,
+                  size: 35,
+                )),
+                Tab(
+                    icon: Icon(
+                  Icons.grid_view_rounded,
+                  size: 35,
+                )),
+                Tab(icon: Icon(Icons.monetization_on_sharp, size: 35)),
+              ],
+            ),
           ),
         ),
         backgroundColor: Colors.white,

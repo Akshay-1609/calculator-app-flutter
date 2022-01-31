@@ -25,34 +25,22 @@ Widget Homepage_widget() {
             SizedBox(
               height: 10,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              // ignore: prefer_const_literals_to_create_immutables
-              children: [
-                Text(
-                  "Equation:",
-                  style: TextStyle(
-                      fontSize: 23,
-                      color: Colors.black45,
-                      fontWeight: FontWeight.w600),
-                )
-              ],
-            ),
+           
             Divider(
-              thickness: 1,
-              color: Colors.black,
+              thickness: 2,
+              color:  Color(0xff24A19C),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               // ignore: prefer_const_literals_to_create_immutables
               children: [
-                Text(
-                  "Answer:",
-                  style: TextStyle(
-                      fontSize: 23,
-                      color: Colors.black45,
-                      fontWeight: FontWeight.w600),
-                )
+                // Text(
+                //   "Answer:",
+                //   style: TextStyle(
+                //       fontSize: 23,
+                //       color: Colors.black45,
+                //       fontWeight: FontWeight.w600),
+                // )
               ],
             ),
             SizedBox(
@@ -148,7 +136,7 @@ Widget custom_txt_button(txt, double size, width, val) {
       child: Card(
         color: Colors.white,
         elevation: 5,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(45)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         child: Container(
           height: 55,
           width: 55,
@@ -171,7 +159,7 @@ Widget custom_icon_button(icn, double size, val) {
     child: Card(
       color: Colors.white,
       elevation: 5,
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(45)),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
       child: Container(
         height: 55,
         width: 55,
@@ -195,7 +183,7 @@ Widget custom_txt2_button(txt, double size, width, val) {
       child: Card(
         color: Colors.white,
         elevation: 5,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(45)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
         child: Container(
           height: 55,
           width: 55,

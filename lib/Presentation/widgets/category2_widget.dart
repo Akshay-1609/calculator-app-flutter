@@ -1,4 +1,6 @@
+import 'package:calculator/Presentation/gst.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 Widget Caterory2_widget()
 {
@@ -23,6 +25,9 @@ Widget Caterory2_widget()
 
 custom_card(img, txt) {
   return GestureDetector(
+    onTap: (){
+      Get.to(Gstpage());
+    },
     child: Card(
       elevation: 0,
       child: Column(

@@ -39,7 +39,7 @@ class SpeedPage extends StatelessWidget {
           child: Icon(
             Icons.arrow_back_ios_new,
             color: Color(0xff325288),
-            size: 30,
+               size: 23,
           ),
         ),
         title: Text(
@@ -271,7 +271,7 @@ Widget custom_txt_button(txt, double size, width) {
       child: Card(
         color: Colors.white,
         elevation: 5,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(45)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         child: Container(
           height: 55,
           width: 55,
