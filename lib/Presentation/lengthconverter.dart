@@ -37,7 +37,11 @@ class LengthConverter extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        elevation: 0,
+        elevation: 5,
+         shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(15),
+                bottomRight: Radius.circular(15))),
         backgroundColor: Colors.white,
         leading: GestureDetector(
           onTap: () {
@@ -46,7 +50,7 @@ class LengthConverter extends StatelessWidget {
           child: Icon(
             Icons.arrow_back_ios_new,
             color: Color(0xff325288),
-            size: 30,
+            size: 23,
           ),
         ),
         title: Text(
@@ -55,7 +59,7 @@ class LengthConverter extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 15, right: 8, top: 15),
+        padding: const EdgeInsets.only(left: 15, right: 8, top: 19),
         child: Column(
           children: [
             Column(
@@ -82,14 +86,18 @@ class LengthConverter extends StatelessWidget {
                     Obx(() => Text(
                           scalecontroller.inputfullform.value,
                           maxLines: 1,
-                          style: TextStyle(
+                             style: TextStyle(
                               color: Colors.black45,
-                              fontSize: 13,
+                              fontSize: 15,
                               fontWeight: FontWeight.w400),
                         )),
                     SizedBox(
                       width: 100,
-                      child: Obx(() => DropdownButton(
+                      child: Obx(() => DropdownButtonFormField(
+                        decoration: InputDecoration(
+                                enabledBorder: UnderlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: Colors.white))),
                             value: scalecontroller.inputdropdown.value,
                             onChanged: (newvalue) {},
                             items: scale_cat
@@ -103,7 +111,10 @@ class LengthConverter extends StatelessWidget {
                                         alignment: Alignment.centerLeft,
                                         child: Text(
                                           e,
-                                          style: TextStyle(fontSize: 16),
+                                          style: TextStyle(
+                                              fontSize: 18,
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.w500),
                                         ),
                                       ),
                                       value: e,
@@ -139,14 +150,18 @@ class LengthConverter extends StatelessWidget {
                   children: [
                     Obx(() => Text(
                           scalecontroller.outputfullform.value,
-                          style: TextStyle(
+                            style: TextStyle(
                               color: Colors.black45,
-                              fontSize: 13,
-                              fontWeight: FontWeight.w400),
+                              fontSize: 15,
+                              fontWeight: FontWeight.w400)
                         )),
                     SizedBox(
                       width: 100,
-                      child: Obx(() => DropdownButton(
+                      child: Obx(() => DropdownButtonFormField(
+                        decoration: InputDecoration(
+                                enabledBorder: UnderlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: Colors.white))),
                             value: scalecontroller.outputdropdown.value,
                             onChanged: (newvalue) {},
                             items: scale_cat
@@ -160,9 +175,10 @@ class LengthConverter extends StatelessWidget {
                                         alignment: Alignment.centerLeft,
                                         child: Text(
                                           e,
-                                          style: TextStyle(
-                                              fontSize: 16,
-                                              color: Colors.black),
+                                         style: TextStyle(
+                                              fontSize: 18,
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.w500),
                                         ),
                                       ),
                                       value: e,
@@ -269,7 +285,7 @@ Widget custom_txt_button(txt, double size, width) {
       child: Card(
         color: Colors.white,
         elevation: 5,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(45)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         child: Container(
           height: 55,
           width: 55,

@@ -51,15 +51,18 @@ class DiscountController extends GetxController {
         originalprice.value = originalprice.value + value;
         countdiscount();
       }
-    } else if (discountprice.value.length < 3 &&
+    } else if (discountprice.value.length <= 2 &&
         discountselect.value == true &&
         value != ".") {
       if (discountprice.value[0] == "0") {
         discountprice.value = value;
         countdiscount();
       } else {
-        discountprice.value = discountprice.value + value;
-        countdiscount();
+        if (int.parse(discountprice.value + value) <= 100) {
+          print((int.parse(discountprice.value) + int.parse(value)).toString());
+          discountprice.value = discountprice.value + value;
+          countdiscount();
+        }
       }
     }
   }

@@ -4,7 +4,9 @@ import 'package:calculator/Controller/discountController.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
 final discountcontroller = Get.put(DiscountController());
+
 class DiscountPage extends StatelessWidget {
   const DiscountPage({Key? key}) : super(key: key);
 
@@ -12,16 +14,20 @@ class DiscountPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
+        elevation: 5,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(15),
+                bottomRight: Radius.circular(15))),
         backgroundColor: Colors.white,
         leading: GestureDetector(
-          onTap: (){
+          onTap: () {
             Get.back();
           },
           child: Icon(
             Icons.arrow_back_ios_new,
             color: Color(0xff325288),
-            size: 30,
+            size: 23,
           ),
         ),
         title: Text(
@@ -32,21 +38,38 @@ class DiscountPage extends StatelessWidget {
       body: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.only(left: 15, right: 8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            padding: const EdgeInsets.only(left: 15, right: 8, top: 25),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "Original Price",
-                  style: TextStyle(
-                      color: Color(0xff31A6A2),
-                      fontSize: 23,
-                      fontWeight: FontWeight.w400),
+                GestureDetector(
+                  onTap: () {
+                    discountcontroller.originalchange();
+                  },
+                  child: Text(
+                    "Original Price:",
+                    style: TextStyle(
+                        color: Color(0xff31A6A2),
+                        fontSize: 23,
+                        fontWeight: FontWeight.w500),
+                  ),
                 ),
-                Obx(()=>GestureDetector(onTap: ()
-                {
-                  discountcontroller.originalchange();
-                },child: Text(discountcontroller.originalprice.value)))
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Obx(() => GestureDetector(
+                        onTap: () {
+                          discountcontroller.originalchange();
+                        },
+                        child: Text(
+                          discountcontroller.originalprice.value,
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 22,
+                              fontWeight: FontWeight.w400),
+                        )))
+                  ],
+                ),
               ],
             ),
           ),
@@ -55,31 +78,79 @@ class DiscountPage extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.only(left: 15, right: 8),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              // ignore: prefer_const_literals_to_create_immutables
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  "Discount(% off)",
-                  style: TextStyle(
-                      color: Color(0xff31A6A2),
-                      fontSize: 23,
-                      fontWeight: FontWeight.w400),
+                GestureDetector(
+                  onTap: () {
+                    discountcontroller.discountchange();
+                  },
+                  child: Text(
+                    "Discount(% off)",
+                    style: TextStyle(
+                        color: Color(0xff31A6A2),
+                        fontSize: 23,
+                        fontWeight: FontWeight.w500),
+                  ),
                 ),
-                Obx(()=>GestureDetector(
-                  onTap: (){
-                     discountcontroller.discountchange();
-                  },child: Text(discountcontroller.discountprice.value)))
-                
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  // ignore: prefer_const_literals_to_create_immutables
+                  children: [
+                    Obx(() => GestureDetector(
+                        onTap: () {
+                          discountcontroller.discountchange();
+                        },
+                        child: Text(
+                          discountcontroller.discountprice.value,
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 22,
+                              fontWeight: FontWeight.w400),
+                        )))
+                  ],
+                ),
               ],
             ),
           ),
           SizedBox(
             height: 20,
           ),
-          Center(child: 
-          Obx(()=> Text("You save: ${discountcontroller.saveamout.value}"))
-         ),
+          Center(
+              child: Obx(() => Card(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10))),
+                    elevation: 5,
+                    child: Container(
+                      height: 50,
+                      decoration: BoxDecoration(
+                          color: Color(0xff325288),
+                          borderRadius: BorderRadius.all(Radius.circular(10))),
+                      width: double.infinity,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "You save:",
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w500),
+                          ),
+                          SizedBox(
+                            width: 6,
+                          ),
+                          Text(
+                            discountcontroller.saveamout.value,
+                            style: TextStyle(
+                                color: Colors.white,
+                                fontSize: 16,
+                                fontWeight: FontWeight.w500),
+                          )
+                        ],
+                      ),
+                    ),
+                  ))),
           SizedBox(
             height: 140,
           ),
@@ -120,7 +191,7 @@ class DiscountPage extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     GestureDetector(
-                      onTap: (){
+                      onTap: () {
                         discountcontroller.inputvaluechange("AC");
                       },
                       child: Container(
@@ -140,7 +211,7 @@ class DiscountPage extends StatelessWidget {
                       ),
                     ),
                     GestureDetector(
-                      onTap: (){
+                      onTap: () {
                         discountcontroller.inputvaluechange("back");
                       },
                       child: Container(
@@ -166,6 +237,7 @@ class DiscountPage extends StatelessWidget {
     );
   }
 }
+
 Widget custom_txt_button(txt, double size, width) {
   return GestureDetector(
       onTap: () {
@@ -174,7 +246,7 @@ Widget custom_txt_button(txt, double size, width) {
       child: Card(
         color: Colors.white,
         elevation: 5,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(45)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         child: Container(
           height: 55,
           width: 55,

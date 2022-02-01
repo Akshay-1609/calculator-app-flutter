@@ -30,7 +30,11 @@ class SpeedPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        elevation: 0,
+        elevation: 5,
+        shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(15),
+                bottomRight: Radius.circular(15))),
         backgroundColor: Colors.white,
         leading: GestureDetector(
           onTap: () {
@@ -39,7 +43,7 @@ class SpeedPage extends StatelessWidget {
           child: Icon(
             Icons.arrow_back_ios_new,
             color: Color(0xff325288),
-               size: 23,
+            size: 23,
           ),
         ),
         title: Text(
@@ -77,12 +81,16 @@ class SpeedPage extends StatelessWidget {
                           maxLines: 1,
                           style: TextStyle(
                               color: Colors.black45,
-                              fontSize: 13,
+                              fontSize: 15,
                               fontWeight: FontWeight.w400),
                         )),
                     SizedBox(
                       width: 100,
-                      child: Obx(() => DropdownButton(
+                      child: Obx(() => DropdownButtonFormField(
+                            decoration: InputDecoration(
+                                enabledBorder: UnderlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: Colors.white))),
                             value: SpeedController.inputdropdown.value,
                             onChanged: (newvalue) {},
                             items: category1
@@ -96,7 +104,10 @@ class SpeedPage extends StatelessWidget {
                                         alignment: Alignment.centerLeft,
                                         child: Text(
                                           e,
-                                          style: TextStyle(fontSize: 16),
+                                          style: TextStyle(
+                                              fontSize: 18,
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.w500),
                                         ),
                                       ),
                                       value: e,
@@ -129,18 +140,21 @@ class SpeedPage extends StatelessWidget {
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-
                   children: [
                     Obx(() => Text(
                           SpeedController.outputfullform.value,
                           style: TextStyle(
                               color: Colors.black45,
-                              fontSize: 13,
+                              fontSize: 15,
                               fontWeight: FontWeight.w400),
                         )),
                     SizedBox(
                       width: 100,
-                      child: Obx(() => DropdownButton(
+                      child: Obx(() => DropdownButtonFormField(
+                            decoration: InputDecoration(
+                                enabledBorder: UnderlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: Colors.white))),
                             value: SpeedController.outputdropdown.value,
                             onChanged: (newvalue) {},
                             items: category1
@@ -155,8 +169,9 @@ class SpeedPage extends StatelessWidget {
                                         child: Text(
                                           e,
                                           style: TextStyle(
-                                              fontSize: 16,
-                                              color: Colors.black),
+                                              fontSize: 18,
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.w500),
                                         ),
                                       ),
                                       value: e,
@@ -232,7 +247,7 @@ class SpeedPage extends StatelessWidget {
                         ),
                       ),
                       GestureDetector(
-                        onTap: (){
+                        onTap: () {
                           SpeedController.inputvaluechange("back");
                         },
                         child: Container(

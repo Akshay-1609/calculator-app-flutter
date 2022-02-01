@@ -29,7 +29,11 @@ class Massconverter extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
-        elevation: 0,
+        elevation: 5,
+         shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.only(
+                bottomLeft: Radius.circular(15),
+                bottomRight: Radius.circular(15))),
         backgroundColor: Colors.white,
         leading: GestureDetector(
           onTap: (){
@@ -42,7 +46,7 @@ class Massconverter extends StatelessWidget {
             child: Icon(
               Icons.arrow_back_ios_new,
               color: Color(0xff325288),
-              size: 30,
+              size: 23,
             ),
           ),
         ),
@@ -79,14 +83,18 @@ class Massconverter extends StatelessWidget {
                     Obx(() => Text(
                           masscontroller.inputfullform.value,
                           maxLines: 1,
-                          style: TextStyle(
+                         style: TextStyle(
                               color: Colors.black45,
-                              fontSize: 13,
+                              fontSize: 15,
                               fontWeight: FontWeight.w400),
                         )),
                     SizedBox(
                       width: 100,
-                      child: Obx(() => DropdownButton(
+                      child: Obx(() => DropdownButtonFormField(
+                         decoration: InputDecoration(
+                                enabledBorder: UnderlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: Colors.white))),
                             value: masscontroller.inputdropdown.value,
                             onChanged: (newvalue) {},
                             items: mass_cat
@@ -100,7 +108,10 @@ class Massconverter extends StatelessWidget {
                                         alignment: Alignment.centerLeft,
                                         child: Text(
                                           e,
-                                          style: TextStyle(fontSize: 16),
+                                         style: TextStyle(
+                                              fontSize: 18,
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.w500),
                                         ),
                                       ),
                                       value: e,
@@ -124,7 +135,7 @@ class Massconverter extends StatelessWidget {
                     Obx(() => Text(
                           masscontroller.outputdata.value,
                           maxLines: 3,
-                          style: TextStyle(
+                         style: TextStyle(
                               color: Color(0xff31A6A2),
                               fontSize: 26,
                               fontWeight: FontWeight.w400),
@@ -138,12 +149,16 @@ class Massconverter extends StatelessWidget {
                           masscontroller.outputfullform.value,
                           style: TextStyle(
                               color: Colors.black45,
-                              fontSize: 13,
+                              fontSize: 15,
                               fontWeight: FontWeight.w400),
                         )),
                     SizedBox(
                       width: 100,
-                      child: Obx(() => DropdownButton(
+                      child: Obx(() => DropdownButtonFormField(
+                          decoration: InputDecoration(
+                                enabledBorder: UnderlineInputBorder(
+                                    borderSide:
+                                        BorderSide(color: Colors.white))),
                             value: masscontroller.outputdropdown.value,
                             onChanged: (newvalue) {},
                             items: mass_cat
@@ -158,8 +173,9 @@ class Massconverter extends StatelessWidget {
                                         child: Text(
                                           e,
                                           style: TextStyle(
-                                              fontSize: 16,
-                                              color: Colors.black),
+                                              fontSize: 18,
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.w500),
                                         ),
                                       ),
                                       value: e,
@@ -266,7 +282,7 @@ Widget custom_txt_button(txt, double size, width) {
       child: Card(
         color: Colors.white,
         elevation: 5,
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(45)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
         child: Container(
           height: 55,
           width: 55,

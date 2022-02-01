@@ -21,14 +21,15 @@ class ScaleController extends GetxController {
 
   inputvaluechange(value) {
     if (value == "AC") {
-      inputdata.value = '';
-      outputdata.value = "";
+      inputdata.value = '0';
+      outputdata.value = "0";
     } else if (value == "back") {
       if (inputdata.value != "") {
         inputdata.value =
             inputdata.value.substring(0, inputdata.value.length - 1);
         if (inputdata.value.isEmpty) {
-          outputdata.value = "";
+          outputdata.value = "0";
+          inputdata.value="0";
         }
         if (inputdata.value.length > 1) {
           speedcalculation();
@@ -38,14 +39,19 @@ class ScaleController extends GetxController {
       inputdata.value = "0.";
       speedcalculation();
     } else if (inputdata.value.length < 25) {
-      inputdata.value = inputdata.value + value;
-      speedcalculation();
+      if (inputdata.value[0] == "0") {
+        inputdata.value = value;
+        speedcalculation();
+      } else {
+        inputdata.value = inputdata.value + value;
+        speedcalculation();
+      }
     }
   }
 
   speedcalculation() {
-    if (inputdata.value == "") {
-      outputdata.value = "";
+    if (inputdata.value == "0") {
+      outputdata.value = "0";
     } else if (inputdropdown.value == outputdropdown.value) {
       outputdata.value = inputdata.value;
     }
@@ -84,7 +90,7 @@ class ScaleController extends GetxController {
     }
 
     //  dm
-   else if (inputdropdown.value == "dm" && outputdropdown.value == "km") {
+    else if (inputdropdown.value == "dm" && outputdropdown.value == "km") {
       outputdata.value = (double.parse(inputdata.value) * 0.0001).toString();
     } else if (inputdropdown.value == "dm" && outputdropdown.value == "m") {
       outputdata.value = (double.parse(inputdata.value) * 0.1).toString();
@@ -100,7 +106,7 @@ class ScaleController extends GetxController {
       outputdata.value = (double.parse(inputdata.value) * 1e11).toString();
     }
     // cm
-  else if (inputdropdown.value == "cm" && outputdropdown.value == "km") {
+    else if (inputdropdown.value == "cm" && outputdropdown.value == "km") {
       outputdata.value = (double.parse(inputdata.value) * 1e-5).toString();
     } else if (inputdropdown.value == "cm" && outputdropdown.value == "dm") {
       outputdata.value = (double.parse(inputdata.value) * .10).toString();
@@ -117,7 +123,7 @@ class ScaleController extends GetxController {
     }
     // mm
 
-   else if (inputdropdown.value == "mm" && outputdropdown.value == "km") {
+    else if (inputdropdown.value == "mm" && outputdropdown.value == "km") {
       outputdata.value = (double.parse(inputdata.value) * 1e-6).toString();
     } else if (inputdropdown.value == "mm" && outputdropdown.value == "dm") {
       outputdata.value = (double.parse(inputdata.value) * 0.01).toString();
@@ -133,8 +139,8 @@ class ScaleController extends GetxController {
       outputdata.value = (double.parse(inputdata.value) * 1e9).toString();
     }
 
-  // µm
-   else if (inputdropdown.value == "µm" && outputdropdown.value == "km") {
+    // µm
+    else if (inputdropdown.value == "µm" && outputdropdown.value == "km") {
       outputdata.value = (double.parse(inputdata.value) * 1e-9).toString();
     } else if (inputdropdown.value == "µm" && outputdropdown.value == "dm") {
       outputdata.value = (double.parse(inputdata.value) * 1e-5).toString();
@@ -169,7 +175,7 @@ class ScaleController extends GetxController {
 
     // pm
 
-     else if (inputdropdown.value == "pm" && outputdropdown.value == "km") {
+    else if (inputdropdown.value == "pm" && outputdropdown.value == "km") {
       outputdata.value = (double.parse(inputdata.value) * 1e-15).toString();
     } else if (inputdropdown.value == "pm" && outputdropdown.value == "m") {
       outputdata.value = (double.parse(inputdata.value) * 1e-12).toString();

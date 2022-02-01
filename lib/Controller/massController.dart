@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
 
 class MassController extends GetxController {
-  var inputdata = ''.obs;
-  var outputdata = ''.obs;
+  var inputdata = '0'.obs;
+  var outputdata = '0'.obs;
   var inputdropdown = 'kg'.obs;
   var outputdropdown = 'kg'.obs;
   var inputfullform = "Kilogram".obs;
@@ -10,40 +10,46 @@ class MassController extends GetxController {
   inputselectvalue(value, ff) {
     inputdropdown.value = value;
     inputfullform.value = ff;
-    speedcalculation();
+    masscalculation();
   }
 
   outputselectvalue(value, ff) {
     outputdropdown.value = value;
     outputfullform.value = ff;
-    speedcalculation();
+    masscalculation();
   }
 
   inputvaluechange(value) {
-    if (value == "AC") {
-      inputdata.value = '';
-      outputdata.value = "";
+   if (value == "AC") {
+      inputdata.value = '0';
+      outputdata.value = "0";
     } else if (value == "back") {
       if (inputdata.value != "") {
         inputdata.value =
             inputdata.value.substring(0, inputdata.value.length - 1);
         if (inputdata.value.isEmpty) {
-          outputdata.value = "";
+          outputdata.value = "0";
+          inputdata.value="0";
         }
         if (inputdata.value.length > 1) {
-          speedcalculation();
+          masscalculation();
         }
       }
     } else if (value == "." && inputdata.value == "") {
       inputdata.value = "0.";
-      speedcalculation();
+      masscalculation();
     } else if (inputdata.value.length < 25) {
-      inputdata.value = inputdata.value + value;
-      speedcalculation();
+      if (inputdata.value[0] == "0") {
+        inputdata.value = value;
+        masscalculation();
+      } else {
+        inputdata.value = inputdata.value + value;
+        masscalculation();
+      }
     }
   }
 
-  speedcalculation() {
+  masscalculation() {
     if (inputdata.value == "") {
       outputdata.value = "";
     } else if (inputdropdown.value == outputdropdown.value) {
@@ -75,7 +81,7 @@ class MassController extends GetxController {
       outputdata.value = (double.parse(inputdata.value) * 5).toString();
     }
 
-   // mg
+    // mg
     else if (inputdropdown.value == "mg" && outputdropdown.value == "kg") {
       outputdata.value = (double.parse(inputdata.value) * 1e-6).toString();
     } else if (inputdropdown.value == "mg" && outputdropdown.value == "g") {
@@ -126,8 +132,5 @@ class MassController extends GetxController {
     } else if (inputdropdown.value == "ct" && outputdropdown.value == "q") {
       outputdata.value = (double.parse(inputdata.value) * 2e-6).toString();
     }
-   
-
-   
   }
 }
