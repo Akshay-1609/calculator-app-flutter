@@ -38,7 +38,7 @@ class LengthConverter extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 5,
-         shape: RoundedRectangleBorder(
+        shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.only(
                 bottomLeft: Radius.circular(15),
                 bottomRight: Radius.circular(15))),
@@ -68,13 +68,23 @@ class LengthConverter extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Obx(() => Text(
-                          scalecontroller.inputdata.value,
-                          style: TextStyle(
-                              color: Color(0xff31A6A2),
-                              fontSize: 26,
-                              fontWeight: FontWeight.w400),
-                        )),
+                    Obx(() => Container(
+                       height: 50,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Color(0xff325288),width: 1.8),
+                        borderRadius: BorderRadius.all(Radius.circular(10))
+                      ),
+                      child: Center(
+                        child: Text(
+                              scalecontroller.inputdata.value,
+                              style: TextStyle(
+                                  color: Color(0xff31A6A2),
+                                  fontSize: 26,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                      ),
+                    )),
                     SizedBox(
                       height: 2,
                     ),
@@ -83,18 +93,20 @@ class LengthConverter extends StatelessWidget {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Obx(() => Text(
-                          scalecontroller.inputfullform.value,
-                          maxLines: 1,
-                             style: TextStyle(
-                              color: Colors.black45,
-                              fontSize: 15,
-                              fontWeight: FontWeight.w400),
-                        )),
+                    Obx(() => Center(
+                      child: Text(
+                            scalecontroller.inputfullform.value,
+                            maxLines: 1,
+                            style: TextStyle(
+                                color: Colors.black45,
+                                fontSize: 15,
+                                fontWeight: FontWeight.w400),
+                          ),
+                    )),
                     SizedBox(
                       width: 100,
                       child: Obx(() => DropdownButtonFormField(
-                        decoration: InputDecoration(
+                            decoration: InputDecoration(
                                 enabledBorder: UnderlineInputBorder(
                                     borderSide:
                                         BorderSide(color: Colors.white))),
@@ -132,33 +144,36 @@ class LengthConverter extends StatelessWidget {
             Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Obx(() => Text(
+                Obx(() => Container(
+                   height: 50,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Color(0xff325288),width: 1.8),
+                        borderRadius: BorderRadius.all(Radius.circular(10))
+                      ),
+                  child: Center(
+                    child: Text(
                           scalecontroller.outputdata.value,
                           maxLines: 3,
                           style: TextStyle(
                               color: Color(0xff31A6A2),
                               fontSize: 26,
                               fontWeight: FontWeight.w400),
-                        )),
-                  ],
-                ),
+                        ),
+                  ),
+                )),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Obx(() => Text(
-                          scalecontroller.outputfullform.value,
-                            style: TextStyle(
-                              color: Colors.black45,
-                              fontSize: 15,
-                              fontWeight: FontWeight.w400)
-                        )),
+                    Obx(() => Text(scalecontroller.outputfullform.value,
+                        style: TextStyle(
+                            color: Colors.black45,
+                            fontSize: 15,
+                            fontWeight: FontWeight.w400))),
                     SizedBox(
                       width: 100,
                       child: Obx(() => DropdownButtonFormField(
-                        decoration: InputDecoration(
+                            decoration: InputDecoration(
                                 enabledBorder: UnderlineInputBorder(
                                     borderSide:
                                         BorderSide(color: Colors.white))),
@@ -175,7 +190,7 @@ class LengthConverter extends StatelessWidget {
                                         alignment: Alignment.centerLeft,
                                         child: Text(
                                           e,
-                                         style: TextStyle(
+                                          style: TextStyle(
                                               fontSize: 18,
                                               color: Colors.black,
                                               fontWeight: FontWeight.w500),
@@ -230,7 +245,7 @@ class LengthConverter extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
                       GestureDetector(
-                        onTap: (){
+                        onTap: () {
                           scalecontroller.inputvaluechange("AC");
                         },
                         child: Container(
@@ -250,8 +265,8 @@ class LengthConverter extends StatelessWidget {
                         ),
                       ),
                       GestureDetector(
-                        onTap: (){
-                           scalecontroller.inputvaluechange("back");
+                        onTap: () {
+                          scalecontroller.inputvaluechange("back");
                         },
                         child: Container(
                           height: 140,
@@ -277,6 +292,7 @@ class LengthConverter extends StatelessWidget {
     );
   }
 }
+
 Widget custom_txt_button(txt, double size, width) {
   return GestureDetector(
       onTap: () {

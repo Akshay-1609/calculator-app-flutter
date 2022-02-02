@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
 
 class ScaleController extends GetxController {
-  var inputdata = ''.obs;
-  var outputdata = ''.obs;
+  var inputdata = '0'.obs;
+  var outputdata = '0'.obs;
   var inputdropdown = 'km'.obs;
   var outputdropdown = 'km'.obs;
   var inputfullform = "Kilometer".obs;

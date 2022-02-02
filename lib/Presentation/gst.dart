@@ -47,14 +47,18 @@ class Gstpage extends StatelessWidget {
             SizedBox(
               height: 3,
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Obx(() => Text(gstcontroller.originaldata.value,
-                    style:
-                        TextStyle(fontSize: 18, fontWeight: FontWeight.w400)))
-              ],
-            ),
+            Obx(() => Container(
+                  height: 50,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                      border: Border.all(color: Color(0xff325288), width: 1.8),
+                      borderRadius: BorderRadius.all(Radius.circular(10))),
+                  child: Center(
+                    child: Text(gstcontroller.originaldata.value,
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.w400)),
+                  ),
+                )),
             SizedBox(
               height: 16,
             ),
@@ -115,62 +119,68 @@ class Gstpage extends StatelessWidget {
                         fontSize: 23,
                         fontWeight: FontWeight.w400),
                   ),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    // ignore: prefer_const_literals_to_create_immutables
-                    children: [Obx(() => Text(gstcontroller.finalprice.value, style: TextStyle(
-                              
-                              fontSize: 18,
-                              fontWeight: FontWeight.w400)))],
+                  SizedBox(
+                    height: 3,
                   ),
+                  Obx(() => Container(
+                        height: 50,
+                        width: double.infinity,
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                                color: Color(0xff325288), width: 1.8),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10))),
+                        child: Center(
+                          child: Text(gstcontroller.finalprice.value,
+                              style: TextStyle(
+                                  fontSize: 18, fontWeight: FontWeight.w400)),
+                        ),
+                      )),
                 ],
               ),
             ),
             SizedBox(
               height: 10,
             ),
-            SizedBox(
-              height: 20,
-            ),
             Center(
-                child:
-                    Obx(() => Card(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.all(Radius.circular(10))),
-                    elevation: 5,
-                    child: Container(
-                      height: 50,
-                      decoration: BoxDecoration(
-                          color: Color(0xff325288),
+                child: Obx(() => Card(
+                      shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.all(Radius.circular(10))),
-                      width: double.infinity,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Cgst/Sgst:",
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.w500),
-                          ),
-                          SizedBox(
-                            width: 6,
-                          ),
-                          Text(
-                            gstcontroller.csgst.value,
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 16,
-                                fontWeight: FontWeight.w500),
-                          )
-                        ],
+                      elevation: 5,
+                      child: Container(
+                        height: 50,
+                        decoration: BoxDecoration(
+                            color: Color(0xff325288),
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(10))),
+                        width: double.infinity,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Cgst/Sgst:",
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w500),
+                            ),
+                            SizedBox(
+                              width: 6,
+                            ),
+                            Text(
+                              gstcontroller.csgst.value,
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500),
+                            )
+                          ],
+                        ),
                       ),
-                    ),
-                  ))),
+                    ))),
             SizedBox(
-              height: 100,
+              height: 80,
             ),
             Expanded(
               child: Row(

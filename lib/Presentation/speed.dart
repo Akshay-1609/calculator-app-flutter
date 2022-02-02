@@ -61,13 +61,22 @@ class SpeedPage extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Obx(() => Text(
-                          SpeedController.inputdata.value,
-                          style: TextStyle(
-                              color: Color(0xff31A6A2),
-                              fontSize: 26,
-                              fontWeight: FontWeight.w400),
-                        )),
+                    Obx(() => Container( height: 50,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Color(0xff325288),width: 1.8),
+                        borderRadius: BorderRadius.all(Radius.circular(10))
+                      ),
+                      child: Center(
+                        child: Text(
+                              SpeedController.inputdata.value,
+                              style: TextStyle(
+                                  color: Color(0xff31A6A2),
+                                  fontSize: 26,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                      ),
+                    )),
                     SizedBox(
                       height: 2,
                     ),
@@ -128,14 +137,24 @@ class SpeedPage extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Obx(() => Text(
-                          SpeedController.outputdata.value,
-                          maxLines: 3,
-                          style: TextStyle(
-                              color: Color(0xff31A6A2),
-                              fontSize: 26,
-                              fontWeight: FontWeight.w400),
-                        )),
+                    Obx(() => Container(
+                      height: 50,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Color(0xff325288),width: 1.8),
+                        borderRadius: BorderRadius.all(Radius.circular(10))
+                      ),
+                      child: Center(
+                        child: Text(
+                              SpeedController.outputdata.value,
+                              maxLines: 3,
+                              style: TextStyle(
+                                  color: Color(0xff31A6A2),
+                                  fontSize: 26,
+                                  fontWeight: FontWeight.w400),
+                            ),
+                      ),
+                    )),
                   ],
                 ),
                 Row(

@@ -54,22 +54,30 @@ class DiscountPage extends StatelessWidget {
                         fontWeight: FontWeight.w500),
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Obx(() => GestureDetector(
-                        onTap: () {
-                          discountcontroller.originalchange();
-                        },
+                SizedBox(
+                  height: 5,
+                ),
+                Obx(() => GestureDetector(
+                    onTap: () {
+                      discountcontroller.originalchange();
+                    },
+                    child: Container(
+                       height: 50,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Color(0xff325288),width: 1.8),
+                        borderRadius: BorderRadius.all(Radius.circular(10))
+                      ),
+                      child: Center(
                         child: Text(
                           discountcontroller.originalprice.value,
                           style: TextStyle(
                               color: Colors.black,
                               fontSize: 22,
                               fontWeight: FontWeight.w400),
-                        )))
-                  ],
-                ),
+                        ),
+                      ),
+                    ))),
               ],
             ),
           ),
@@ -93,23 +101,30 @@ class DiscountPage extends StatelessWidget {
                         fontWeight: FontWeight.w500),
                   ),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  // ignore: prefer_const_literals_to_create_immutables
-                  children: [
-                    Obx(() => GestureDetector(
-                        onTap: () {
-                          discountcontroller.discountchange();
-                        },
+                SizedBox(
+                  height: 5,
+                ),
+                Obx(() => GestureDetector(
+                    onTap: () {
+                      discountcontroller.discountchange();
+                    },
+                    child: Container(
+                       height: 50,
+                      width: double.infinity,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: Color(0xff325288),width: 1.8),
+                        borderRadius: BorderRadius.all(Radius.circular(10))
+                      ),
+                      child: Center(
                         child: Text(
                           discountcontroller.discountprice.value,
                           style: TextStyle(
                               color: Colors.black,
                               fontSize: 22,
                               fontWeight: FontWeight.w400),
-                        )))
-                  ],
-                ),
+                        ),
+                      ),
+                    ))),
               ],
             ),
           ),
@@ -152,7 +167,7 @@ class DiscountPage extends StatelessWidget {
                     ),
                   ))),
           SizedBox(
-            height: 140,
+            height: 90,
           ),
           Expanded(
             child: Row(

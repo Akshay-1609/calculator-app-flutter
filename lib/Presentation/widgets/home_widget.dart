@@ -109,12 +109,13 @@ Widget Homepage_widget() {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
+                   SizedBox(
+                    width: 60,
+                  ),
                   custom_txt2_button(".", 30, FontWeight.w700, "."),
                   custom_txt2_button("0", 30, FontWeight.w700, "0"),
                   custom_txt2_button("=", 30, FontWeight.w700, "="),
-                  SizedBox(
-                    width: 60,
-                  ),
+                 
                 ],
               )
             ],
